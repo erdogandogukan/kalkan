@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Gizli bilgiler: API anahtarları asla repoya girmez
+.env
+.env.*
+
+# Büyük dosyalar: veri ve modeller git'e değil Hugging Face Hub'a gider
+data/raw/
+models/
+*.safetensors
+*.bin
+*.onnx
+wandb/
