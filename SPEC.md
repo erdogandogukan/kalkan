@@ -59,3 +59,8 @@ değiştirir. Kalkan'ın içindeki saldırı dedektörünü biz eğitiriz.
 - Maskeleme eşleme tablosu (TCKN ↔ `[TCKN_1]`) nerede ve ne kadar süre tutulacak?
 - Dedektör emin olamazsa ne olacak: engellensin mi, uyarı mı verilsin, sadece kayda mı geçsin?
 - Gecikme bütçesi ne olmalı?
+- Boşluklarla bölünmüş TCKN'ler (`100 000 001 46`) şimdilik bulunmuyor (Gün 4 kararı). Bu bir
+  sızıntı riski. Gerçek kullanımda ne sıklıkla görüldüğünü ölçtükten sonra yeniden karar verilecek.
+- Rakamların arasına görünmez karakter (zero-width space, soft hyphen) konunca TCKN bulunmuyor
+  (Gün 4'te subagent incelemesi buldu). Bu ucuz bir kaçış yolu, Gün 5'te ilk iş olarak çözülecek.
+  Görünmez karakterler silinince konumlar kaydığı için bir konum eşlemesi gerekiyor.

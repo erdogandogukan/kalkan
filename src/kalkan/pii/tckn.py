@@ -1,5 +1,12 @@
 """Validation of Turkish national identity numbers (TCKN)."""
 
+import re
+import unicodedata
+from dataclasses import dataclass
+
+# Exactly 11 digits. Only digits define the boundary, so letters may touch the number.
+_ELEVEN_DIGITS = re.compile(r"(?<![0-9])[0-9]{11}(?![0-9])")
+
 
 def is_valid_tckn(value: str) -> bool:
     """Return True if value is a valid 11-digit TCKN according to its checksum rules."""
@@ -18,3 +25,25 @@ def is_valid_tckn(value: str) -> bool:
         return False
 
     return sum(digits[:10]) % 10 == digits[10]
+
+
+@dataclass(frozen=True)
+class TcknMatch:
+    """A TCKN found in text. start/end index the original text; value is ASCII digits."""
+
+    value: str
+    start: int
+    end: int
+
+
+def find_tckns(text: str) -> list[TcknMatch]:
+    """Return every valid TCKN in text, with positions in the original text."""
+    # Map every Unicode digit (Arabic-Indic, fullwidth, superscript, circled, ...) to ASCII.
+    # Each character maps to exactly one character, so indexes in the normalized text match
+    # the original.
+    normalized = "".join(str(unicodedata.digit(c)) if c.isdigit() else c for c in text)
+    return [
+        TcknMatch(m.group(), m.start(), m.end())
+        for m in _ELEVEN_DIGITS.finditer(normalized)
+        if is_valid_tckn(m.group())
+    ]

@@ -57,3 +57,17 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
 - **Kalkan neden her 11 haneli sayıyı maskelemiyor da kontrol hanelerine bakıyor?**
   genel tc no kuralimiz yuzunden
 - **Kafamda kalan soru:**
+
+## Gün 4 — 5 Ekim 2026
+
+- **Ne yaptım:** Metnin içinden TCKN bulan `find_tckns`'i yaptırdım. Karar tablosunu ben verdim
+  (boşluklu numara şimdilik bulunmuyor, harfe bitişik numara bulunuyor, daha uzun bir sayının
+  parçası olan bulunmuyor). Prompt'u kendim yazdım. Plan mode'da agent'ın normalize yöntemine ve
+  konumların orijinal metne göre kalmasına baktım. Sonra bir subagent'a incelettim. Subagent
+  6 durum buldu. Üst simge ve daire içi rakamları düzelttirdim, görünmez karakterleri yarına bıraktım.
+  27 test geçiyor.
+- **İncelemeyi neden subagent'a yaptırdık, kodu yazan agent'a yaptırsaydık ne farklı olurdu?**
+  temiz context ve tarafsız bakış
+- **Yanlış alarm mı kaçırma mı, Kalkan için hangisi daha kötü? Neden?**
+  kaçırma daha kötü
+- **Kafamda kalan soru:**
