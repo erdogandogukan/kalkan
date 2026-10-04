@@ -8,9 +8,34 @@
       "PowerShell(ruff check *)",
       "PowerShell(ruff format *)"
     ],
+    "ask": [
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python -m pip install *)",
+      "Bash(conda install *)",
+      "PowerShell(pip install *)",
+      "PowerShell(pip3 install *)",
+      "PowerShell(python -m pip install *)",
+      "PowerShell(conda install *)"
+    ],
     "deny": [
       "Read(**/.env)",
       "Read(**/.env.*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/post_edit_checks.py\"",
+            "timeout": 120,
+            "statusMessage": "Running pytest and ruff..."
+          }
+        ]
+      }
     ]
   }
 }

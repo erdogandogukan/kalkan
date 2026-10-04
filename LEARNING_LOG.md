@@ -44,3 +44,16 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
 - **a–h kurallarından hangisi tavsiye olarak kalmamalı, hook olmalı?**
   d ve f olabilir cunku bir eylem ve sonrasinda aksiyon var
 - **Kafamda kalan soru:**
+
+## Gün 3 — 4 Ekim 2026
+
+- **Ne yaptım:** f kuralını PostToolUse hook'una çevirdim (her düzenlemeden sonra pytest ve ruff),
+  d kuralını `ask` izin kuralı yaptım. Agent "ask çalışmıyor" diye yanlış teşhis koydu. Aslında
+  bana sormuştu, ben yanlışlıkla 1'e bastım. TCKN prompt'unu ilk kez kendim yazdım, agent
+  `is_valid_tckn`'i yazdı ve 10 test yeşile döndü. ASCII olmayan rakamlar için iki test eklemeye
+  karar verdim.
+- **Hook'u bugün kim çalıştırdı, agent mı Claude Code mu? Fark neden önemli?**
+  claude code calistirdi cunku kural olarak biz verdik agentin karar almasini beklemedik.
+- **Kalkan neden her 11 haneli sayıyı maskelemiyor da kontrol hanelerine bakıyor?**
+  genel tc no kuralimiz yuzunden
+- **Kafamda kalan soru:**

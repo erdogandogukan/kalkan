@@ -19,6 +19,9 @@ from kalkan.pii.tckn import is_valid_tckn
         pytest.param("01234567840", False, id="leading-zero"),
         pytest.param("1000000014", False, id="ten-digits"),
         pytest.param("1000000014a", False, id="contains-letter"),
+        # Non-ASCII digits: str.isdigit() accepts them, but a TCKN must use ASCII 0-9
+        pytest.param("١٠٠٠٠٠٠٠١٤٦", False, id="arabic-indic-digits"),
+        pytest.param("１０００００００１４６", False, id="fullwidth-digits"),
     ],
 )
 def test_is_valid_tckn(value: str, expected: bool) -> None:

@@ -28,6 +28,7 @@ b) Never use real personal data. Tests use only synthetic, algorithm-generated n
 c) Never read or commit .env files or secrets.
 d) Ask before adding a new dependency.
 e) Code, comments and commit messages in English. SPEC.md and LEARNING_LOG.md stay in Turkish.
+   Reply to the developer in Turkish, but keep technical terms in English (agent, hook, test, commit).
 f) Run python -m pytest and ruff check . after every change.
 g) Red-team scope: only public, published attack datasets. Never generate new harmful content.
 h) Keep steps small: one feature at a time. Use plan mode before larger changes.
