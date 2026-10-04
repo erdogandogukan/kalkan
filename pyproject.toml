@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kalkan"
+version = "0.1.0"
+description = "A security layer that protects messages sent to LLMs (Turkish PII masking and attack detection)."
+readme = "SPEC.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+norecursedirs = ["deneyler", ".git", ".venv", "*.egg-info"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["deneyler"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

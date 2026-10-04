@@ -31,3 +31,16 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
   *(Konuşmadan sonra:)* guvenlik icin her istek kontrolden gecmeli, model atlatilabilir o yuzden
   sabit workflow olmali
 - **Kafamda kalan soru:**
+
+## Gün 2 — 4 Ekim 2026
+
+- **Ne yaptım:** DeepLearning.AI Claude Code kursundan 3 ders izledim. TCKN testlerinin beklenen
+  değerlerine karar verdim (0 ile başlayan numara TCKN sayılmaz). Agent'a proje iskeletini
+  (`pyproject.toml`, `src/kalkan/`), Kalkan'ın `CLAUDE.md`'sini, `.claude/settings.json` izinlerini
+  ve 10 kırmızı TCKN testini yazdırdım (TDD'nin ilk adımı). Plan mode'da agent, ruff'ın `deneyler/`
+  klasörüne bakıp bakmayacağını sordu, ben karar verdim.
+- **c kuralı hem CLAUDE.md'de hem settings.json'daki deny'da yazıyor. Agent'ı gerçekten durduran hangisi?**
+  deny olan
+- **a–h kurallarından hangisi tavsiye olarak kalmamalı, hook olmalı?**
+  d ve f olabilir cunku bir eylem ve sonrasinda aksiyon var
+- **Kafamda kalan soru:**
