@@ -67,3 +67,7 @@ değiştirir. Kalkan'ın içindeki saldırı dedektörünü biz eğitiriz.
 - Gün 5'te bilerek kabul edilen bir yan etki: Arasında sadece görünmez karakter olan iki TCKN
   (`10000000146` + U+200B + `34567891238`) 22 haneli tek bir sayı sayılıyor ve ikisi de bulunmuyor.
   Olası çözüm: Görünmez karakterlerle ayrılan parçaları ayrıca aday olarak denemek.
+- Etiketlerle ilgili iki sınır durum (Gün 5): LLM etiketi bozarsa (örneğin `TCKN_1` ya da
+  `[TCKN 1]` yazarsa) geri açma yapılmıyor ve kullanıcı etiketi görüyor. Kullanıcı metninde zaten
+  `[TCKN_1]` yazıyorsa bu etiket kendi numarasıyla çakışabiliyor (eşleme istek başına olduğu için
+  başka bir kullanıcıya sızıntı yok). İkisinin de gerçek kullanımda ne sıklıkla olduğu ölçülecek.

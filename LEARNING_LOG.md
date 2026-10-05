@@ -80,3 +80,10 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
   olarak eklendi. 34 test geçiyor.
 - **Konumları neden orijinal metne göre tutmak zorundayız?**
   konumlar kayardı yanlış yer maskelenirdi
+- **Ne yaptım (2. iş):** `/clear` yapıp `mask_tckns` / `unmask` yaptırdım. Dört kararı ben verdim:
+  aynı numaraya aynı etiket, eşlemede ASCII hâli, eşleme hiçbir yerde saklanmıyor, bilinmeyen
+  etiketlere dokunulmuyor. Plan mode'da eşlemenin global bir yerde tutulmadığını kontrol ettim.
+  45 test geçiyor.
+- **Eşleme herkes için ortak tek bir tablo olsaydı, B müşterisine giden cevapta ne olabilirdi?**
+  A müşterisinin numarası B'nin cevabında açılabilirdi
+- **Kafamda kalan soru:**
