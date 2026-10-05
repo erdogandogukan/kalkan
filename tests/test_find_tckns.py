@@ -38,6 +38,17 @@ from kalkan.pii.tckn import find_tckns
         pytest.param("TC 1000000014⁶", [("10000000146", 3, 14)], id="superscript-digit"),
         pytest.param("TC ①0000000146", [("10000000146", 3, 14)], id="circled-digit"),
         pytest.param("²10000000146", [], id="superscript-before-number"),
+        # Invisible format characters (category Cf) are ignored. The span runs from the first
+        # digit to the last one in the original text, so invisible characters inside it are masked
+        pytest.param("TC 10000​000146", [("10000000146", 3, 15)], id="zero-width-space"),
+        pytest.param("TC 1000000014­6", [("10000000146", 3, 15)], id="soft-hyphen"),
+        pytest.param("TC 10000‍000146", [("10000000146", 3, 15)], id="zero-width-joiner"),
+        pytest.param("TC ‮10000000146", [("10000000146", 4, 15)], id="rtl-override-before"),
+        # Visible separators still split the number, consistent with the spaced-digits decision
+        pytest.param("TC 10000 000146", [], id="nbsp-visible"),
+        pytest.param("TC 10000-000146", [], id="hyphen-visible"),
+        # With the invisible character removed this is a 13-digit number
+        pytest.param("Hesap 1000000014​612", [], id="invisible-joins-longer-number"),
     ],
 )
 def test_find_tckns(text: str, expected: list[tuple[str, int, int]]) -> None:

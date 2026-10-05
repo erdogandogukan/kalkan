@@ -38,12 +38,21 @@ class TcknMatch:
 
 def find_tckns(text: str) -> list[TcknMatch]:
     """Return every valid TCKN in text, with positions in the original text."""
-    # Map every Unicode digit (Arabic-Indic, fullwidth, superscript, circled, ...) to ASCII.
-    # Each character maps to exactly one character, so indexes in the normalized text match
-    # the original.
-    normalized = "".join(str(unicodedata.digit(c)) if c.isdigit() else c for c in text)
+    # Drop invisible format characters (category Cf: zero-width space, soft hyphen, ...) and map
+    # every Unicode digit (Arabic-Indic, fullwidth, superscript, circled, ...) to ASCII.
+    # positions[i] is the index in the original text of normalized[i].
+    chars: list[str] = []
+    positions: list[int] = []
+    for i, c in enumerate(text):
+        if unicodedata.category(c) == "Cf":
+            continue
+        chars.append(str(unicodedata.digit(c)) if c.isdigit() else c)
+        positions.append(i)
+    normalized = "".join(chars)
+    # The span runs from the first digit to the last, so invisible characters inside it are
+    # included and get masked too.
     return [
-        TcknMatch(m.group(), m.start(), m.end())
+        TcknMatch(m.group(), positions[m.start()], positions[m.end() - 1] + 1)
         for m in _ELEVEN_DIGITS.finditer(normalized)
         if is_valid_tckn(m.group())
     ]

@@ -71,3 +71,12 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
 - **Yanlış alarm mı kaçırma mı, Kalkan için hangisi daha kötü? Neden?**
   kaçırma daha kötü
 - **Kafamda kalan soru:**
+
+## Gün 5 — 5 Ekim 2026
+
+- **Ne yaptım (1. iş):** Görünmez karakterlerle (Unicode Cf: zero-width space, soft hyphen, ZWJ,
+  RTL override) bölünmüş TCKN'leri buldurdum. Plan mode'da konumların orijinal metne nasıl geri
+  eşlendiğine baktım (`positions` listesi). 3 test kırmızıdan yeşile döndü, 4 test regression guard
+  olarak eklendi. 34 test geçiyor.
+- **Konumları neden orijinal metne göre tutmak zorundayız?**
+  konumlar kayardı yanlış yer maskelenirdi

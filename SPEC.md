@@ -64,3 +64,6 @@ değiştirir. Kalkan'ın içindeki saldırı dedektörünü biz eğitiriz.
 - Rakamların arasına görünmez karakter (zero-width space, soft hyphen) konunca TCKN bulunmuyor
   (Gün 4'te subagent incelemesi buldu). Bu ucuz bir kaçış yolu, Gün 5'te ilk iş olarak çözülecek.
   Görünmez karakterler silinince konumlar kaydığı için bir konum eşlemesi gerekiyor.
+- Gün 5'te bilerek kabul edilen bir yan etki: Arasında sadece görünmez karakter olan iki TCKN
+  (`10000000146` + U+200B + `34567891238`) 22 haneli tek bir sayı sayılıyor ve ikisi de bulunmuyor.
+  Olası çözüm: Görünmez karakterlerle ayrılan parçaları ayrıca aday olarak denemek.
