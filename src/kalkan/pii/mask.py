@@ -8,13 +8,16 @@ from kalkan.pii.tckn import find_tckns
 _LABEL = re.compile(r"\[TCKN_[0-9]+\]")
 
 
-def mask_tckns(text: str) -> tuple[str, dict[str, str]]:
+def mask_tckns(text: str, mapping: dict[str, str] | None = None) -> tuple[str, dict[str, str]]:
     """Replace every TCKN in text with a label and return the masked text and label -> number map.
 
     Labels are numbered in order of first appearance; the same number always gets the same label.
-    The map is built fresh on every call and is never stored.
+    Without mapping, the map is built fresh on every call and is never stored. With mapping (a
+    label -> number map from an earlier call), its labels are reused and new ones continue the
+    numbering; the returned map holds both. The given mapping is not modified.
     """
-    labels: dict[str, str] = {}  # ASCII number -> label
+    # ASCII number -> label
+    labels: dict[str, str] = {value: label for label, value in (mapping or {}).items()}
     parts: list[str] = []
     prev_end = 0
     for match in find_tckns(text):

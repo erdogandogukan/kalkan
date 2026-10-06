@@ -8,7 +8,10 @@ version = "0.1.0"
 description = "A security layer that protects messages sent to LLMs (Turkish PII masking and attack detection)."
 readme = "SPEC.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["fastapi", "httpx", "uvicorn"]
+
+[project.optional-dependencies]
+demo = ["openai"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

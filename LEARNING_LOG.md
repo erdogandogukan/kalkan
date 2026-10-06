@@ -87,3 +87,17 @@ Her gün 17:00'de beş satır. **Kendi cümlelerinle yaz, agent'a yazdırma.** B
 - **Eşleme herkes için ortak tek bir tablo olsaydı, B müşterisine giden cevapta ne olabilirdi?**
   A müşterisinin numarası B'nin cevabında açılabilirdi
 - **Kafamda kalan soru:**
+
+## Gün 6 — 6 Ekim 2026
+
+- **Ne yaptım:** Kalkan'ı OpenAI-uyumlu bir proxy yaptırdım (FastAPI → Ollama `gemma3:12b`).
+  Altı karar verdim: bütün roller maskeleniyor, bir istekteki mesajlar tek eşlemeyi paylaşıyor,
+  stream kapalı, maskesiz içerik loglanmıyor, sadece 127.0.0.1, Ollama kapalıysa 502. Demoyu kendim
+  çalıştırdım. LLM sadece `[TCKN_1]` gördü. İlk turda model reddetti, ikinci turda cevaptaki etiket
+  benim numarama geri açıldı. Agent'ın verdiği başlatma komutu çalışmadı, `pip install -e .`
+  gerekiyordu. Agent `ask` kuralını python.exe'nin tam yolunu yazarak atlattı. Kalıbı genişlettim.
+- **50 test yeşildi ama ilk çalıştırma hata verdi. Neden, nasıl önlenir?**
+  baslatma olmadigi icin
+- **ask kuralı neden atlatıldı, bunun Kalkan'la ilgisi ne?**
+  cunku ask teki belirttimiz kural yazimla eslesmedigi icin
+- **Kafamda kalan soru:**

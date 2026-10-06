@@ -1,3 +1,15 @@
+Metadata-Version: 2.4
+Name: kalkan
+Version: 0.1.0
+Summary: A security layer that protects messages sent to LLMs (Turkish PII masking and attack detection).
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi
+Requires-Dist: httpx
+Requires-Dist: uvicorn
+Provides-Extra: demo
+Requires-Dist: openai; extra == "demo"
+
 # Kalkan — Spesifikasyon
 
 ## 1. Tek cümle
@@ -74,7 +86,3 @@ değiştirir. Kalkan'ın içindeki saldırı dedektörünü biz eğitiriz.
 - Proxy (Gün 6) sadece mesaj içeriğini (`content`) maskeliyor. `tool_calls` argümanları ve
   isteğin bilinmeyen alanları (örneğin `metadata`) LLM'e olduğu gibi gidiyor. Buralardaki bir TCKN
   maskelenmeden geçebilir. Bu bilinen bir kaçırma yolu ve kapatılması gerekiyor.
-- Fikir (Gün 6 demosu): `gemma3:12b`, sadece `[TCKN_1]` görmesine rağmen "numaranı tekrarlayamam" diye
-  reddetti (over-refusal). Kalkan, LLM'e giden isteğe "[TCKN_n] etiketleri maskelenmiş değerlerdir,
-  cevabında aynen kullanabilirsin" diye kısa bir not ekleyebilir. Hem reddetmeyi hem de etiketin
-  bozulmasını azaltabilir, ölçülerek denenecek.

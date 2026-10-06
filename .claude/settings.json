@@ -16,7 +16,11 @@
       "PowerShell(pip install *)",
       "PowerShell(pip3 install *)",
       "PowerShell(python -m pip install *)",
-      "PowerShell(conda install *)"
+      "PowerShell(conda install *)",
+      "Bash(*pip* install *)",
+      "Bash(*conda* install *)",
+      "PowerShell(*pip* install *)",
+      "PowerShell(*conda* install *)"
     ],
     "deny": [
       "Read(**/.env)",

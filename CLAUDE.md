@@ -9,9 +9,11 @@ PowerShell has no conda init).
 
 ```
 conda activate kalkan
+pip install -e .         # once per env: makes `kalkan` importable outside pytest (src layout)
 python -m pytest
 ruff check .
 ruff format .
+python -m kalkan.proxy   # OpenAI-compatible proxy on 127.0.0.1:8000 -> Ollama
 ```
 
 ## Layout
