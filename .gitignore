@@ -17,3 +17,8 @@ models/
 *.bin
 *.onnx
 wandb/
+
+# Build artifacts (pip install -e .)
+*.egg-info/
+build/
+dist/
